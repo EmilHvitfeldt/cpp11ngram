@@ -1,4 +1,4 @@
 ## usethis namespace: start
-#' @useDynLib aaaa, .registration = TRUE
+#' @useDynLib cpp11ngram, .registration = TRUE
 ## usethis namespace: end
 NULL

@@ -7,7 +7,7 @@
 
 // code.cpp
 list cpp11_ngram(list x, int n, int n_min, cpp11::r_string delim);
-extern "C" SEXP _aaaa_cpp11_ngram(SEXP x, SEXP n, SEXP n_min, SEXP delim) {
+extern "C" SEXP _cpp11ngram_cpp11_ngram(SEXP x, SEXP n, SEXP n_min, SEXP delim) {
   BEGIN_CPP11
     return cpp11::as_sexp(cpp11_ngram(cpp11::as_cpp<cpp11::decay_t<list>>(x), cpp11::as_cpp<cpp11::decay_t<int>>(n), cpp11::as_cpp<cpp11::decay_t<int>>(n_min), cpp11::as_cpp<cpp11::decay_t<cpp11::r_string>>(delim)));
   END_CPP11
@@ -15,12 +15,12 @@ extern "C" SEXP _aaaa_cpp11_ngram(SEXP x, SEXP n, SEXP n_min, SEXP delim) {
 
 extern "C" {
 static const R_CallMethodDef CallEntries[] = {
-    {"_aaaa_cpp11_ngram", (DL_FUNC) &_aaaa_cpp11_ngram, 4},
+    {"_cpp11ngram_cpp11_ngram", (DL_FUNC) &_cpp11ngram_cpp11_ngram, 4},
     {NULL, NULL, 0}
 };
 }
 
-extern "C" attribute_visible void R_init_aaaa(DllInfo* dll){
+extern "C" attribute_visible void R_init_cpp11ngram(DllInfo* dll){
   R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
   R_useDynamicSymbols(dll, FALSE);
   R_forceSymbols(dll, TRUE);

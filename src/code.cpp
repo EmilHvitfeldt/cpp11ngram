@@ -2,7 +2,6 @@
 #include <string>
 using namespace cpp11;
 
-
 writable::strings ngram_single(strings x, int n, std::string delim_string) {
 
   if (n == 1) {
@@ -33,8 +32,18 @@ writable::strings ngram_single(strings x, int n, std::string delim_string) {
 
 strings ngram(strings x, int n, int n_min, std::string delim_string) {
 
-  writable::strings res;
+  // The following 5 lines of code was done to pre-allocate
+  // I will try to convert to push_back()
+  int res_len = 0;
+  int x_len = x.size();
+
+  for (int i = n_min; i <= n; ++i) {
+    res_len += std::max(x_len - i + 1, 0);
+  }
+
+  writable::strings res (res_len);
   writable::strings temp_res;
+  int index = 0;
 
   for (int i = n_min; i <= n; ++i) {
 
@@ -42,7 +51,9 @@ strings ngram(strings x, int n, int n_min, std::string delim_string) {
     int temp_res_len = temp_res.size();
 
     for(int j = 0; j < temp_res_len; ++j) {
-      res.push_back(temp_res[j]);
+      res[index] = cpp11::r_string(temp_res[j]);
+      ++index;
+      // res.push_back(temp_res[j]);
     }
   }
 
