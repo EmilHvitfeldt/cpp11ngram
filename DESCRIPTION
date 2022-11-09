@@ -12,3 +12,5 @@ RoxygenNote: 7.2.1.9000
 LinkingTo: 
     cpp11
 SystemRequirements: C++11
+URL: https://github.com/EmilHvitfeldt/cpp11ngram
+BugReports: https://github.com/EmilHvitfeldt/cpp11ngram/issues
