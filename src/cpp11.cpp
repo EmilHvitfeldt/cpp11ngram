@@ -6,10 +6,10 @@
 #include <R_ext/Visibility.h>
 
 // code.cpp
-list cpp11_ngram(list x, int n, int n_min, cpp11::r_string delim);
+cpp11::writable::list_of<cpp11::writable::strings> cpp11_ngram(cpp11::list_of<cpp11::strings> x, int n, int n_min, std::string delim);
 extern "C" SEXP _cpp11ngram_cpp11_ngram(SEXP x, SEXP n, SEXP n_min, SEXP delim) {
   BEGIN_CPP11
-    return cpp11::as_sexp(cpp11_ngram(cpp11::as_cpp<cpp11::decay_t<list>>(x), cpp11::as_cpp<cpp11::decay_t<int>>(n), cpp11::as_cpp<cpp11::decay_t<int>>(n_min), cpp11::as_cpp<cpp11::decay_t<cpp11::r_string>>(delim)));
+    return cpp11::as_sexp(cpp11_ngram(cpp11::as_cpp<cpp11::decay_t<cpp11::list_of<cpp11::strings>>>(x), cpp11::as_cpp<cpp11::decay_t<int>>(n), cpp11::as_cpp<cpp11::decay_t<int>>(n_min), cpp11::as_cpp<cpp11::decay_t<std::string>>(delim)));
   END_CPP11
 }
 
